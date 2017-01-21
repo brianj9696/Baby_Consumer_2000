@@ -10,9 +10,12 @@ public class WaterRise : MonoBehaviour {
     private float startTime;
     private float journeyLength;
     private GameObject player;
+    private GameObject[] babies;
+
     // Use this for initialization
     void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
+        babies = GameObject.FindGameObjectsWithTag("Baby");
         startingPoint = transform.position;
         endingPoint = new Vector3(transform.position.x, 25, transform.position.z);
 
@@ -36,6 +39,15 @@ public class WaterRise : MonoBehaviour {
         {
             int scene = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        }
+
+        foreach(GameObject baby in babies)
+        {
+            if (baby.transform.position.y <= transform.position.y)
+            {
+                int scene = SceneManager.GetActiveScene().buildIndex;
+                SceneManager.LoadScene(scene, LoadSceneMode.Single);
+            }
         }
     }
 }
