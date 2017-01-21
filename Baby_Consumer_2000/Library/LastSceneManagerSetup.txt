@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Baby_Consumer_2000_03.unity
-  isLoaded: 1
-  isActive: 1
