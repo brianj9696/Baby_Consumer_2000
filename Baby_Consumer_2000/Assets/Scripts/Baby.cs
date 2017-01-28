@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Baby : MonoBehaviour {
-
+    public bool crying;
 	// Use this for initialization
 	void Start () {
-		
+        crying = true;
 	}
 	
 	// Update is called once per frame
