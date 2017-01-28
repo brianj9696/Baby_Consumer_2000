@@ -18,9 +18,12 @@ public class Baby : MonoBehaviour {
     {
         if(col.tag == "Chute")
         {
-            gameObject.GetComponentInParent<PickUp>().holdingBaby = false;
-            Destroy(gameObject);
-            Debug.Log("in chute");
+            transform.parent.gameObject.GetComponentInParent<PickUp>().holdingBaby = false;
+            //gameObject.GetComponentInParent<PickUp>().holdingBaby = false;
+            gameObject.SetActive(false);
+            //Destroy(gameObject);
+            //Debug.Log("in chute");
+            
         }
     }
 }

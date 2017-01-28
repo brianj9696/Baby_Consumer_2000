@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour {
     public bool holdingBaby;
-    private GameObject baby;
+    public GameObject baby;
 	// Use this for initialization
 	void Start () {
         holdingBaby = false;
-
+        baby = transform.GetChild(0).GetChild(1).gameObject;
     }
 
     // Update is called once per frame
@@ -16,10 +16,7 @@ public class PickUp : MonoBehaviour {
     {
         if(holdingBaby)
         {
-            //baby.transform.position = GameObject.FindGameObjectWithTag("MainCamera").transform.position + Vector3.forward;
-            //baby.transform.rotation = new Quaternion(0.0f, GameObject.FindGameObjectWithTag("MainCamera").transform.rotation.y, 0.0f, GameObject.FindGameObjectWithTag("MainCamera").transform.rotation.w);
-            baby.transform.position = Camera.main.transform.position + Camera.main.transform.forward * 1;
-            Debug.Log("holding");
+            
         }
     }
 
@@ -27,13 +24,10 @@ public class PickUp : MonoBehaviour {
     {
         if(col.tag == "Baby" && !holdingBaby)
         {
-            //col.transform.Rotate(new Vector3(90, 90, 0));
-            //col.transform.position = GameObject.FindGameObjectWithTag("MainCamera").transform.position + Vector3.forward;
-            //col.transform.rotation = new Quaternion(0.0f, GameObject.FindGameObjectWithTag("MainCamera").transform.rotation.y, 0.0f, GameObject.FindGameObjectWithTag("MainCamera").transform.rotation.w);
-
-            col.transform.parent = gameObject.transform;
+            //col.transform.parent = gameObject.transform;
+            Destroy(col.gameObject);
             holdingBaby = true;
-            baby = col.gameObject;
+            baby.SetActive(true);
         }
     }
 }
