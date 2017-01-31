@@ -11,7 +11,22 @@ public class Baby : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (crying)
+        {
+            foreach(Transform child in transform)
+            {
+                if (child.name.Equals("Crying_Particle_System"))
+                    child.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (Transform child in transform)
+            {
+                if (child.name.Equals("Crying_Particle_System"))
+                    child.gameObject.SetActive(false);
+            }
+        }
 	}
 
     void OnTriggerEnter(Collider col)
