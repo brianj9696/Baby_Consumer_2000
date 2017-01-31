@@ -38,6 +38,10 @@ public class BabyCare : MonoBehaviour, AudioProcessor.AudioCallbacks {
                     badHits--;
                     hitBeat = true;
                 }
+                else
+                {
+                    badHits++;
+                }
                 //else if (badHits < 5)
                 //    badHits++;
                 Debug.Log(badHits);
@@ -52,6 +56,10 @@ public class BabyCare : MonoBehaviour, AudioProcessor.AudioCallbacks {
                 {
                     badHits--;
                     hitBeat = true;
+                }
+                else
+                {
+                    badHits++;
                 }
                 //else if (badHits < 5)
                  //   badHits++;
@@ -78,7 +86,7 @@ public class BabyCare : MonoBehaviour, AudioProcessor.AudioCallbacks {
             }
             beatBuffer++;
                 
-            if (badHits >= 5)
+            if (badHits >= 4)
                 baby.GetComponent<Baby>().crying = true;
             else
                 baby.GetComponent<Baby>().crying = false;
